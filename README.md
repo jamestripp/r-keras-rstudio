@@ -1,7 +1,7 @@
 # R, RStudio, Keras in Docker
 
 Here are instructions for installing a docker container (an isolated set of processes) within which runs R, RStudio server and Keras. 
-This setup may be useful in case R and Keras are not working for you. **The size of the image is 5GB so do allow time to download the file**.
+This setup may be useful in case R and Keras are not working for you. **The size of the image is ~2GB so do allow time to download the file**.
 
 ## Docker
 
@@ -45,7 +45,7 @@ and you should see docker building the image. The images is up to a few GB and w
 The docker image is available via dockerhub. Make sure you are logged into Docker with your Docker ID. Then type into the terminal.
 
 ```bash
-docker pull jamestripp/r-keras-rstudio:tagname
+docker pull jamestripp/rkerasrstudio:latest
 ```
 
 The image is large and will take a while to download.
