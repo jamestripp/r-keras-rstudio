@@ -55,10 +55,11 @@ The image is large and will take a while to download.
 Make sure you have download the image (see above) and then run in the terminal
 
 ```bash
-docker run -d -p 8787:8787 -e PASSWORD="rstudio" r-keras-rstudio
+docker run -d -p 8787:8787 -v ~/Downloads:/home/rstudio -e PASSWORD="rstudio" r-keras-rstudio
 ```
 
 The above command starts up a container using our r-keras-rstudio image. The container allows you to access the web interface of RStudio via port 8787 and has the password rstudio (you can change the password).
+The folder /home/rstudio is linked to the Downloads folder on your machine. On Windows you will need to be using powershell for ~/Downloads to point to your home drive. You can also remove '-v ~/Downloads:/home/rstudio' from the command if you do not want to link the /home/rstudio directory in the container to a local directory.
 
 You can check the container is running by typing into the terminal
 
