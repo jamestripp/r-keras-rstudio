@@ -3,6 +3,8 @@
 Here are instructions for installing a docker container (an isolated set of processes) within which runs R, RStudio server and Keras. 
 This setup may be useful in case R and Keras are not working for you. **The size of the image is ~2GB so do allow time to download the file**.
 
+The dockerfile is taken largely from the [rocker docker file for tensorflow](https://hub.docker.com/r/rocker/tensorflow/dockerfile). 
+
 ## Docker
 
 We use the Docker program to setup our container. You can find an overview of Docker [here](https://docs.docker.com/get-started/overview/). 
@@ -55,10 +57,11 @@ The image is large and will take a while to download.
 Make sure you have download the image (see above) and then run in the terminal
 
 ```bash
-docker run -d -p 8787:8787 -v ~/Downloads:/home/rstudio -e PASSWORD="rstudio" jamestripp/rkerasrstudio:latest
+docker run -d -p 8787:8787 -v ~/Downloads:/home/rstudio -e PASSWORD="mypassword" jamestripp/rkerasrstudio:latest
 ```
 
-The above command starts up a container using our r-keras-rstudio image. The container allows you to access the web interface of RStudio via port 8787 and has the password rstudio (you can change the password).
+The above command starts up a container using our r-keras-rstudio image. The container allows you to access the web interface of RStudio via port 8787 and has the password mypassword(the container will not run if you set the password to rstudio)
+.
 The folder /home/rstudio is linked to the Downloads folder on your machine. On Windows you will need to be using powershell for ~/Downloads to point to your home drive. You can also remove '-v ~/Downloads:/home/rstudio' from the command if you do not want to link the /home/rstudio directory in the container to a local directory.
 
 You can check the container is running by typing into the terminal
